@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: testappimg 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: testappimg
+  template:
+    metadata:
+      labels:
+        app: testappimg 
+    spec:
+      containers:
+        - name: testappimg 
+          image: engelcontainerregistry.azurecr.io/testappimg
+          ports:
+          - containerPort: 8080
